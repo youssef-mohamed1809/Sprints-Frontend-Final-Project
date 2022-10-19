@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <form (ngSubmit)="register()" [formGroup]="registerForm">
+      <div class="col-6">
+        <input placeholder="First Name" formControlName="first_name" />
+      </div>
+      <div class="col-6">
+        <input placeholder="Last Name" formControlName="last_name" />
+      </div>
+      <div class="col-6">
+        <input
+          placeholder="Passowrd"
+          formControlName="password"
+          type="password"
+        />
+      </div>
+      <div class="col-6">
+        <input
+          placeholder="Password Confirm"
+          formControlName="password_confirm"
+          type="password"
+        />
+      </div>
+      <div class="col-12">
+        <input placeholder="Email" formControlName="email" type="email" />
+      </div>
+
+      <button class="btn btn-success" [disabled]="!registerForm.valid">
+        Register
+      </button>
+
+      {{ registerForm.controls["password_confirm"].errors | json }}
+    </form>
+  </div>
+</div>

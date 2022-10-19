@@ -1,0 +1,49 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="row">
+      <div class="col-12">
+        <label>UserName</label>
+        <input placeholder="User name" formControlName="username" />
+        <div
+          *ngIf="loginForm.controls['username']?.errors?.['required']"
+          class="text-danger"
+        >
+          UserName cannot be empty
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="loginForm.controls['username']?.errors?.['email']"
+        >
+          Please enter a valid email
+        </div>
+      </div>
+      <div class="col-12">
+        <label>Password</label>
+        <input
+          placeholder="Password"
+          type="password"
+          formControlName="password"
+        />
+        <div
+          class="text-danger"
+          *ngIf="loginForm.controls['password']?.errors?.['required']"
+        >
+          Password cannot be empty
+        </div>
+        <div
+          class="text-danger"
+          *ngIf="loginForm.controls['password']?.errors?.['minlength']"
+        >
+          Password length must be more than 6 characters
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="!loginForm.valid"
+      >
+        Login
+      </button>
+    </div>
+  </form>
+</div>

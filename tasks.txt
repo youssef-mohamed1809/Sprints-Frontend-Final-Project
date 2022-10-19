@@ -1,0 +1,3 @@
+[Final Project]
+implement detail page to view single product details + (You also may know section)
+Implement add order task

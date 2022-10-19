@@ -1,0 +1,56 @@
+<!-- Breadcrumb Start -->
+<div class="container-fluid">
+  <div class="row px-xl-5">
+    <div class="col-12">
+      <nav class="breadcrumb bg-light mb-30">
+        <a class="breadcrumb-item text-dark" href="#">Home</a>
+        <a class="breadcrumb-item text-dark" href="#">Shop</a>
+        <span class="breadcrumb-item active">Shop List</span>
+      </nav>
+    </div>
+  </div>
+</div>
+<!-- Breadcrumb End -->
+
+<!-- Shop Start -->
+<div class="container-fluid">
+  <div class="row px-xl-5">
+    <!-- Shop Sidebar Start -->
+    <div class="col-lg-3 col-md-4">
+      <app-shop-filter
+        (changePriceRange)="changePriceRange($event)"
+        (changeSizes)="changeSizes($event)"
+        (changeColors)="changeColors($event)"
+      ></app-shop-filter>
+    </div>
+    <!-- Shop Sidebar End -->
+
+    <!-- Shop Product Start -->
+    <div class="col-lg-9 col-md-8">
+      <div class="row pb-3">
+        <div class="col-12 pb-1">
+          <app-shop-sort></app-shop-sort>
+        </div>
+        <div class="col-12">
+          <div
+            class="row app-shop-products"
+            [colors]="colors"
+            [sizes]="sizes"
+            [priceRange]="priceRange"
+            [page]="page"
+          ></div>
+        </div>
+        <div class="col-12">
+          <app-shop-pagination
+            [colors]="colors"
+            [sizes]="sizes"
+            [priceRange]="priceRange"
+            (changePage)="changePage($event)"
+          ></app-shop-pagination>
+        </div>
+      </div>
+    </div>
+    <!-- Shop Product End -->
+  </div>
+</div>
+<!-- Shop End -->

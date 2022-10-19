@@ -1,0 +1,26 @@
+<nav>
+  <ul class="pagination justify-content-center">
+    <li
+      class="page-item {{ page == 0 ? 'disabled' : '' }}"
+      (click)="setPage(page - 1)"
+    >
+      <a class="page-link">Previous</a>
+    </li>
+    <ng-container
+      *ngFor="let n of [].constructor(getPageCount()); let i = index"
+    >
+      <li
+        class="page-item {{ page == i ? 'active' : '' }}"
+        (click)="setPage(i)"
+      >
+        <a class="page-link">{{ i + 1 }}</a>
+      </li>
+    </ng-container>
+    <li
+      class="page-item  {{ page == getPageCount() - 1 ? 'disabled' : '' }}"
+      (click)="setPage(page + 1)"
+    >
+      <a class="page-link">Next</a>
+    </li>
+  </ul>
+</nav>
